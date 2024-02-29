@@ -20,13 +20,13 @@ function Counter() {
     </div>
   );
 }
-
+```
 
 ## 2. useEffect
       `useEffect` is used for handling side effects in functional components, such as data fetching, subscriptions, or manual DOM manipulations. Here is an example fetching data:
 
-``
-      import React, { useState, useEffect } from 'react';
+```jsx
+import React, { useState, useEffect } from 'react';
 
 function DataFetcher() {
   const [data, setData] = useState([]);
@@ -49,9 +49,11 @@ function DataFetcher() {
     </div>
   );
 }
+```
 
 ## 3. useContext
 
+```jsx
 import React, { createContext, useContext } from 'react';
 
 const ThemeContext = createContext('light');
@@ -61,10 +63,11 @@ function ThemedComponent() {
 
   return <div style={{ background: theme }}>Themed Content</div>;
 }
+```
 
 ## 4. useReducer
 
-
+```jsx
 import React, { useReducer } from 'react';
 
 const initialState = { count: 0 };
@@ -91,3 +94,4 @@ function CounterWithReducer() {
     </div>
   );
 }
+```
