@@ -67,7 +67,7 @@ function ThemedComponent() {
 ```
 
 ## 4. useReducer
-`useReducer` is used for managing more complex state logic. It is similar to useState but allows you to handle state transitions in a more predictable way.
+`useReducer` is used for managing more complex state logic. It is similar to `useState` but allows you to handle state transitions in a more predictable way.
 
 ```jsx
 import React, { useReducer } from 'react';
