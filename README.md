@@ -1,7 +1,7 @@
 # Hooked-to-React
 ## A guide to use hooks in react functional components
 
-React hooks are functions that enable functional components to manage state and side effects. They were introduced in React 16.8 and have become an integral part of building React applications. Here, we'll explore the basic use cases of some of the most commonly used React hooks.
+React hooks are functions that enable functional components to manage state and side effects. They were introduced in React 16.8 and have become an integral part of building React applications. Here, we'll explore the basic use cases of some of the commonly used React hooks.
 
 ## 1. useState
 
@@ -23,7 +23,7 @@ function Counter() {
 ```
 
 ## 2. useEffect
-      `useEffect` is used for handling side effects in functional components, such as data fetching, subscriptions, or manual DOM manipulations. Here is an example fetching data:
+`useEffect` is used for handling side effects in functional components, such as data fetching, subscriptions, or manual DOM manipulations. Here is an example fetching data:
 
 ```jsx
 import React, { useState, useEffect } from 'react';
@@ -52,6 +52,7 @@ function DataFetcher() {
 ```
 
 ## 3. useContext
+`useContext` is used for consuming values from the React context. It allows components to subscribe to a context without introducing nesting.
 
 ```jsx
 import React, { createContext, useContext } from 'react';
@@ -66,6 +67,7 @@ function ThemedComponent() {
 ```
 
 ## 4. useReducer
+`useReducer` is used for managing more complex state logic. It is similar to useState but allows you to handle state transitions in a more predictable way.
 
 ```jsx
 import React, { useReducer } from 'react';
