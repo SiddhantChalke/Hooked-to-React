@@ -97,3 +97,49 @@ function CounterWithReducer() {
   );
 }
 ```
+
+## 5. useCallback
+`useCallback` is used to memoize functions, preventing unnecessary re-creation of functions in every render. It's particularly useful when passing functions as props to child components, preventing unnecessary renders of those child components.
+
+In this example, `handleIncrement` is memoized with `useCallback`, ensuring that it remains the same between renders as long as the `count` state remains unchanged.
+```jsx
+import React, { useState, useCallback } from 'react';
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <ChildComponent onIncrement={handleIncrement} />
+    </div>
+  );
+}
+
+function ChildComponent({ onIncrement }) {
+  return <button onClick={onIncrement}>Increment</button>;
+}
+```
+
+## 6. useMemo
+`useMemo` is used to memoize the result of a computation, preventing redundant calculations during renders. It's helpful when dealing with expensive calculations or complex data transformations.
+
+In this example, the result of the expensive calculation is memoized with `useMemo`, so it only recalculates when the `data` dependency changes.
+
+```jsx
+import React, { useMemo } from 'react';
+
+function ExpensiveCalculationComponent({ data }) {
+  const result = useMemo(() => {
+    // Expensive calculation based on data
+    return data.reduce((acc, value) => acc + value, 0);
+  }, [data]);
+
+  return <p>Result: {result}</p>;
+}
+
+```
