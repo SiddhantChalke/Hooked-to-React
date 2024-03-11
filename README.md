@@ -143,3 +143,54 @@ function ExpensiveCalculationComponent({ data }) {
 }
 
 ```
+
+## 7. useRef
+`useRef` is used to create mutable object with a `current` property that can hold a mutable value. This is often used for accessing and interacting with DOM elements directly.
+In this example, the `inputRef` is assigned to the `ref` attribute of the `input` element. The `useEffect` hook is used to focus on the input element when the component mounts.
+
+```jsx
+import React, { useRef, useEffect } from 'react';
+
+function AutoFocusInput() {
+  const inputRef = useRef();
+
+  useEffect(() => {
+    // Focus on the input element when the component mounts
+    inputRef.current.focus();
+  }, []);
+
+  return <input ref={inputRef} />;
+}
+
+```
+## 8. useLayouteffect
+
+`useLayoutEffect` is similar to `useEffect`, but it runs synchronously after all DOM mutations. It's often used for tasks that require accurate measurements of the DOM, such as animations or updating the layout based on DOM changes.
+In this example, `useLayoutEffect` is used to measure and update the width of an element dynamically, ensuring that the measurement is accurate before rendering
+
+```jsx
+import React, { useState, useLayoutEffect } from 'react';
+
+function DynamicWidthComponent() {
+  const [width, setWidth] = useState(0);
+
+  const updateWidth = () => {
+    const newWidth = document.getElementById('element').clientWidth;
+    setWidth(newWidth);
+  };
+
+  // useLayoutEffect ensures that the layout is updated before painting
+  useLayoutEffect(() => {
+    window.addEventListener('resize', updateWidth);
+    updateWidth(); // Initial measurement
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+    };
+  }, []); // Empty dependency array means it runs once after initial render
+
+  return <p>The width is: {width}px</p>;
+}
+
+```
