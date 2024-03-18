@@ -194,3 +194,35 @@ function DynamicWidthComponent() {
 }
 
 ```
+## 9. useContext
+
+```jsx 
+import React, { useContext } from 'react';
+
+// Create a context
+const ThemeContext = React.createContext('light');
+
+function ThemedComponent() {
+  // Consume the context value
+  const theme = useContext(ThemeContext);
+
+  return <div style={{ background: theme }}>Themed Content</div>;
+}
+
+```
+
+## 10. useDebugValue
+
+```jsx
+import { useDebugValue, useState } from 'react';
+
+function useCustomHook(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  // Display debug value in React DevTools
+  useDebugValue(value > 0 ? 'Positive' : 'Negative');
+
+  return [value, setValue];
+}
+
+```
